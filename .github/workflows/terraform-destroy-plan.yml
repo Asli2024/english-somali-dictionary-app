@@ -19,6 +19,12 @@ on:
         description: "AWS Region"
         required: true
         default: "eu-west-2"
+  push:
+    branches:
+      - feature/*
+    paths:
+      - "./terraform/**"
+      - ".github/workflows/terraform-destroy-plan.yml"
 
 permissions:
   id-token: write
