@@ -18,6 +18,12 @@ on:
         description: "AWS Region"
         required: true
         default: "eu-west-2"
+  push:
+    branches:
+      - feature/*
+    paths:
+      - "english-dictionary/**"
+      - ".github/workflows/docker-build-push.yml"
 
 permissions:
   id-token: write
@@ -48,7 +54,7 @@ jobs:
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v5
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc-role
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID}}:role/github-oidc-role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
@@ -179,4 +185,4 @@ jobs:
           echo "Repository: ${{ env.ECR_REPOSITORY }}"
           echo "Tag: ${{ needs.build-and-scan.outputs.image-tag }}"
           echo "Region: ${{ env.AWS_REGION }}"
-          echo "Image URI: ${{ needs.build-and-scan.outputs.image-uri }}"
+          echo "Image URI: ${{ needs.build-and-scan.outputs.image-uri }}"s

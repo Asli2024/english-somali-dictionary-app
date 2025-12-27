@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "oidc_assume_role" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:Asli2024/English-Somali-Dictionary:*"]
+      values   = ["repo:Asli2024/*"]
     }
   }
 }
