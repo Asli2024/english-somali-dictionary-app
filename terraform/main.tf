@@ -222,7 +222,7 @@ data "aws_iam_policy_document" "ecs_execution_policy" {
       "ecr:DescribeRepositories"
     ]
     resources = [
-      "arn:aws:ecr:${data.aws_region.current.id}:${data.aws_caller_identity.current.account_id}:repository/english-somali-dictionary-app"
+      "arn:aws:ecr:${data.aws_region.current.id}:${data.aws_caller_identity.current.account_id}:repository/english-somali-dictionary-app-ecr-repo"
     ]
   }
 
