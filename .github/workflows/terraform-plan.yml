@@ -20,6 +20,13 @@ on:
         required: true
         default: "eu-west-2"
 
+  push:
+    branches:
+      - feature/*
+    paths:
+      - "./terraform/**"
+      - ".github/workflows/terraform-plan.yml"
+
 permissions:
   id-token: write
   contents: read
