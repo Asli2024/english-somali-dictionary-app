@@ -28,7 +28,7 @@ on:
                 default: "eu-west-2"
     push:
         branches: [main]
-        paths: [".github/workflows/terraform-unlock-state.yml"] # Only trigger when this workflow file changes
+        paths: [".github/workflows/terraform-unlock-state.yml"]
 
 permissions:
     id-token: write
@@ -40,7 +40,7 @@ env:
 
 jobs:
     unlock:
-        name: Force Unlock State - ${{ github.event.inputs.environment || 'test' }}
+        name: Force Unlock State - ${{ github.event.inputs.environment}}
         runs-on: ubuntu-latest
         if: github.event.inputs.confirm == 'UNLOCK' || github.event_name == 'push'
 

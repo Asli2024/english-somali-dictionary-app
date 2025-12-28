@@ -18,12 +18,6 @@ on:
         description: "AWS Region"
         required: true
         default: "eu-west-2"
-  push:
-    branches:
-      - feature/*
-    paths:
-      - "english-dictionary/**"
-      - ".github/workflows/docker-build-push.yml"
 
 permissions:
   id-token: write
