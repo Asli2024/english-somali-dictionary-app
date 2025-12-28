@@ -26,47 +26,63 @@ on:
                 description: "AWS Region"
                 required: true
                 default: "eu-west-2"
+    push:
+        branches: [main]
+        paths: [".github/workflows/terraform-unlock-state.yml"] # Only trigger when this workflow file changes
 
 permissions:
     id-token: write
     contents: read
 
 env:
-    AWS_REGION: ${{ github.event.inputs.aws_region }}
-    AWS_ACCOUNT_ID: ${{ github.event.inputs.account_number }}
+    AWS_REGION: ${{ github.event.inputs.aws_region || 'eu-west-2' }}
+    AWS_ACCOUNT_ID: ${{ github.event.inputs.account_number || secrets.AWS_ACCOUNT_ID }}
 
 jobs:
     unlock:
-        name: Force Unlock State - ${{ github.event.inputs.environment }}
+        name: Force Unlock State - ${{ github.event.inputs.environment || 'test' }}
         runs-on: ubuntu-latest
-        if: github.event.inputs.confirm == 'UNLOCK'
+        if: github.event.inputs.confirm == 'UNLOCK' || github.event_name == 'push'
 
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
 
+            - name: Skip unlock on push trigger
+              if: github.event_name == 'push'
+              run: |
+                  echo "This workflow was triggered by a push event."
+                  echo "Skipping actual unlock operation for safety."
+                  echo "Use manual trigger with required inputs to actually unlock state."
+                  exit 0
+
             - name: Configure AWS credentials via OIDC
+              if: github.event_name == 'workflow_dispatch'
               uses: aws-actions/configure-aws-credentials@v5
               with:
                   role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc-role
                   aws-region: ${{ env.AWS_REGION }}
 
             - name: Set up Terraform
+              if: github.event_name == 'workflow_dispatch'
               uses: hashicorp/setup-terraform@v3
 
             - name: Terraform Init
+              if: github.event_name == 'workflow_dispatch'
               working-directory: ./terraform
               run: |
                   echo "Initializing Terraform..."
                   terraform init
 
             - name: Select Workspace
+              if: github.event_name == 'workflow_dispatch'
               working-directory: ./terraform
               run: |
                   echo "Selecting workspace: ${{ github.event.inputs.environment }}"
                   terraform workspace select -or-create ${{ github.event.inputs.environment }}
 
             - name: Force Unlock State
+              if: github.event_name == 'workflow_dispatch'
               working-directory: ./terraform
               run: |
                   echo "Force unlocking state with Lock ID: ${{ github.event.inputs.lock_id }}"
@@ -75,6 +91,7 @@ jobs:
                   terraform force-unlock -force ${{ github.event.inputs.lock_id }}
 
             - name: Verify State Status
+              if: github.event_name == 'workflow_dispatch'
               working-directory: ./terraform
               run: |
                   echo "State unlocked successfully"
