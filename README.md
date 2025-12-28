@@ -99,7 +99,7 @@ This approach allows fast local iteration while keeping production deployments o
 English-Somali-Dictionary/
 ├── README.md
 ├── images/
-│   ├── architecture.gif
+│   ├── architecture-design.gif
 │   └── local-deployment-demo.gif
 ├── Terraform/
 │   ├── Modules/
