@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt && \
 
 
 # Final runtime stage
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
 WORKDIR /app
 
