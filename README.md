@@ -73,7 +73,7 @@ At a high level, the system consists of:
 
 ---
 
-## DynamoDB Caching (Optional)
+## DynamoDB Caching
 
 Translations can be cached in **DynamoDB** to:
 
@@ -89,7 +89,7 @@ Translations can be cached in **DynamoDB** to:
   * `english-dictionary/app/config.py`
   * `english-dictionary/app/bedrock_client.py`
 
-This approach allows fast local iteration while keeping production deployments optimized and cost-efficient.
+This approach allows fast local iteration while keeping production deployments optimised and cost-efficient.
 
 ---
 
