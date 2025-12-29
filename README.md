@@ -36,8 +36,9 @@ To run the English Somali Dictionary app locally using Docker:
 
 4. **Watch the demo:**
 
-   ![Local Deployment Demo](images/local-deployment-demo.gif)
+   [Watch Local Demo](https://www.loom.com/share/06e87610f41940f89303b1f0bb9ee2bb)**
 
+   
 ## Live Deployment
 
 ![Live Deployment Demo](images/deployment.gif)
@@ -98,61 +99,67 @@ This approach allows fast local iteration while keeping production deployments o
 
 
 ## Repository Structure
+
 ```text
 English-Somali-Dictionary/
 ├── README.md
-├── images/
-│   ├── architecture-design.gif
-│   └── local-deployment-demo.gif
-├── Terraform/
-│   ├── Modules/
-│   │   ├── acm/
-│   │   ├── alb/
-│   │   ├── cloudfront/
-│   │   ├── cloudwatch_alarm/
-│   │   ├── cloudwatch_dashboard/
-│   │   ├── dynamodb/
-│   │   ├── ecr/
-│   │   ├── ecs/
-│   │   ├── gateway_endpoint/
-│   │   ├── iam/
-│   │   ├── interface_endpoint/
-│   │   ├── route53/
-│   │   ├── s3/
-│   │   ├── security_groups/
-│   │   ├── vpc/
-│   │   └── waf/
-│   ├── README.md
-│   ├── backend.tf
-│   ├── config/
-│   │   ├── dev/
-│   │   ├── prod/
-│   │   └── staging/
-│   ├── data.tf
-│   ├── main.tf
-│   ├── provider.tf
-│   └── variables.tf
 ├── bootstrap/
 │   ├── README.md
 │   ├── main.tf
 │   ├── provider.tf
 │   └── variables.tf
-└── english-dictionary/
-    ├── Dockerfile
+├── english-dictionary/
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── bedrock_client.py
+│   │   ├── config.py
+│   │   ├── main.py
+│   │   └── prompts.py
+│   ├── requirements.txt
+│   └── static/
+│       ├── app.js
+│       ├── index.html
+│       └── styles.css
+├── images/
+│   ├── architecture-design.gif
+│   ├── deployment.gif
+│   ├── docker-build-push.png
+│   ├── local-deployment-demo.gif
+│   ├── terraform-apply.png
+│   ├── terraform-destroy-apply.png
+│   ├── terraform-destroy-plan-and-approve.png
+│   └── terraform-plan-and-approve.png
+└── terraform/
     ├── README.md
-    ├── app/
-    │   ├── __init__.py
-    │   ├── bedrock_client.py
-    │   ├── config.py
-    │   ├── main.py
-    │   └── prompts.py
-    ├── requirements.txt
-    └── static/
-        ├── app.js
-        ├── index.html
-        └── styles.css
+    ├── backend.tf
+    ├── config/
+    │   ├── dev/
+    │   ├── prod/
+    │   └── staging/
+    ├── data.tf
+    ├── main.tf
+    ├── modules/
+    │   ├── acm/
+    │   ├── alb/
+    │   ├── cloudfront/
+    │   ├── cloudwatch_alarm/
+    │   ├── cloudwatch_dashboard/
+    │   ├── dynamodb/
+    │   ├── ecr/
+    │   ├── ecs/
+    │   ├── gateway_endpoint/
+    │   ├── iam/
+    │   ├── interface_endpoint/
+    │   ├── route53/
+    │   ├── s3/
+    │   ├── security_groups/
+    │   ├── vpc/
+    │   └── waf/
+    ├── provider.tf
+    └── variables.tf
 ```
----
 
 ## CI/CD
 
@@ -174,10 +181,10 @@ All workflows are located in `.github/workflows/`.
 [Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581670999): ![Terraform Apply Run](images/terraform-apply.png)
 
 
-[Terraform Destroy Plan and Approve](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20531703223): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
+[Terraform Destroy Plan and Approve](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20582256286): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
 
 
-[Terraform Destroy Apply](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581021162): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
+[Terraform Destroy Apply](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20582272373): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
 
 ---
 ## Contributing
