@@ -36,12 +36,12 @@ To run the English Somali Dictionary app locally using Docker:
 
 4. **Watch the demo:**
 
-   [Watch Local Demo](https://www.loom.com/share/06e87610f41940f89303b1f0bb9ee2bb)**
+   [Watch Local Demo](https://www.loom.com/share/06e87610f41940f89303b1f0bb9ee2bb)
 
-   
+
 ## Live Deployment
 
-![Live Deployment Demo](images/deployment.gif)
+![Live Deployment Demo](https://www.loom.com/share/9823e488715e4eb9bad9d9c6bd54d7c2)
 
 ## Key Features
 
@@ -124,9 +124,7 @@ English-Somali-Dictionary/
 │       └── styles.css
 ├── images/
 │   ├── architecture-design.gif
-│   ├── deployment.gif
 │   ├── docker-build-push.png
-│   ├── local-deployment-demo.gif
 │   ├── terraform-apply.png
 │   ├── terraform-destroy-apply.png
 │   ├── terraform-destroy-plan-and-approve.png
@@ -175,7 +173,7 @@ All workflows are located in `.github/workflows/`.
 
 [Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20559959729): ![Docker Build Screenshot](images/docker-build-push.png)
 
-[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581670999/job/59110317089): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
+[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20582733051): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
 
 
 [Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581670999): ![Terraform Apply Run](images/terraform-apply.png)
