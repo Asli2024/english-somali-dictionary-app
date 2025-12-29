@@ -38,6 +38,9 @@ To run the English Somali Dictionary app locally using Docker:
 
    ![Local Deployment Demo](images/local-deployment-demo.gif)
 
+## Live Deployment
+
+![Live Deployment Demo](images/deployment.gif)
 
 ## Key Features
 
@@ -163,18 +166,18 @@ GitHub Actions workflows provide:
 
 All workflows are located in `.github/workflows/`.
 
-[Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20532104502): ![Docker Build Screenshot](images/docker-build-push.png)
+[Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20559959729): ![Docker Build Screenshot](images/docker-build-push.png)
 
-[Terraform Plan and Approve Run](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20531602146): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
+[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581670999/job/59110317089): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
 
 
-[Terraform Apply Run](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20531632706): ![Terraform Apply Run](images/terraform-apply.png)
+[Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581670999): ![Terraform Apply Run](images/terraform-apply.png)
 
 
 [Terraform Destroy Plan and Approve](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20531703223): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
 
 
-[Terraform Destroy Apply](https://github.com/Asli2024/English-Somali-Dictionary/actions/runs/20531703223): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
+[Terraform Destroy Apply](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20581021162): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
 
 ---
 ## Contributing
