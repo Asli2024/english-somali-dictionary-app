@@ -41,7 +41,7 @@ To run the English Somali Dictionary app locally using Docker:
 
 ## Live Deployment
 
-![Live Deployment Demo](https://www.loom.com/share/9823e488715e4eb9bad9d9c6bd54d7c2)
+[Live Deployment Demo](https://www.loom.com/share/9823e488715e4eb9bad9d9c6bd54d7c2)
 
 ## Key Features
 
