@@ -57,15 +57,21 @@ To run the English Somali Dictionary app locally using Docker:
 
 ## Docker Multi-Stage Build
 
-**Single-Stage Build:**
+The application uses Docker multi-stage builds to optimize image size and security by separating build dependencies from the runtime environment.
 
-![Single-Stage Docker Image](images/docker-single-stage.png)
+**Single-Stage Build (122.07 MB):**
 
-**Multi-Stage Build:**
+![Single-Stage Docker Image](images/docker-single-stage-build.png)
 
-![Multi-Stage Docker Image](images/docker-multi-stage.png)
+**Multi-Stage Build (52.68 MB):**
 
-Multi-stage build reduces image size by ~XX% and improves security by removing build tools from the final image.
+![Multi-Stage Docker Image](images/docker-multi-stage-build.png)
+
+**Benefits:**
+- **56.85% reduction** in image size (122.07 MB → 52.68 MB)
+- Improved security by removing build tools (gcc, musl-dev) from final image
+- Faster deployments and reduced storage costs
+- Smaller attack surface for production containers
 
 ---
 
@@ -138,6 +144,8 @@ English-Somali-Dictionary/
 ├── images/
 │   ├── architecture-design.gif
 │   ├── docker-build-push.png
+│   ├── docker-multi-stage-build.png
+│   ├── docker-single-stage-build.png
 │   ├── terraform-apply.png
 │   ├── terraform-destroy-apply.png
 │   ├── terraform-destroy-plan-and-approve.png
@@ -184,12 +192,12 @@ GitHub Actions workflows provide:
 
 All workflows are located in `.github/workflows/`.
 
-[Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20559959729): ![Docker Build Screenshot](images/docker-build-push.png)
+[Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20662878015): ![Docker Build Screenshot](images/docker-build-push.png)
 
-[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20582733051): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
+[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20663077549): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
 
 
-[Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20582786161): ![Terraform Apply Run](images/terraform-apply.png)
+[Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20663097722): ![Terraform Apply Run](images/terraform-apply.png)
 
 
 [Terraform Destroy Plan and Approve](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20583340179): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
