@@ -71,7 +71,7 @@ jobs:
             type=raw,value=${{ steps.image-tag.outputs.tag }}
 
       - name: Run Trivy Vulnerability Scanner (Dockerfile)
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.68.2
         with:
           scan-type: "config"
           scan-ref: "english-dictionary/Dockerfile"
@@ -109,7 +109,7 @@ jobs:
 
       - name: Display Trivy Results in Console
         if: always()
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.68.2
         with:
           scan-type: "image"
           input: "/tmp/image.tar"
