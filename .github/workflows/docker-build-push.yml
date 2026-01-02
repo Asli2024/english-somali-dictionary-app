@@ -75,8 +75,9 @@ jobs:
         with:
           scan-type: "config"
           scan-ref: "english-dictionary/Dockerfile"
-          exit-code: "0"
-          severity: "HIGH,CRITICAL"
+          exit-code: "1"
+          severity: "MEDIUM,HIGH,CRITICAL"
+          format: "table"
 
       - name: Build Docker Image
         uses: docker/build-push-action@v5
@@ -100,7 +101,20 @@ jobs:
           input: "/tmp/image.tar"
           format: "sarif"
           output: "trivy-results.sarif"
-          severity: "CRITICAL,HIGH"
+          severity: "MEDIUM,HIGH,CRITICAL"
+          exit-code: "1"
+        env:
+          TRIVY_PLATFORM: "linux/arm64"
+
+      - name: Display Trivy Results in Console
+        if: always()
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "image"
+          input: "/tmp/image.tar"
+          format: "table"
+          severity: "MEDIUM,HIGH,CRITICAL"
+          exit-code: "0"
         env:
           TRIVY_PLATFORM: "linux/arm64"
 
