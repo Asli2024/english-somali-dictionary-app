@@ -25,6 +25,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONPATH=/install/lib/python3.12/site-packages
 
 RUN apk add --no-cache --no-scripts curl && \
+    pip install --no-cache-dir "pip>=25.3" && \
     addgroup -g 1000 appgroup && \
     adduser -u 1000 -D -G appgroup appuser
 
