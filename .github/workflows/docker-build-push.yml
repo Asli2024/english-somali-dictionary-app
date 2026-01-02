@@ -91,6 +91,10 @@ jobs:
           no-cache: true
           outputs: type=docker,dest=/tmp/image.tar
 
+      - name: Update Trivy Database
+        run: |
+          docker run --rm aquasec/trivy:latest image --download-db-only
+
       - name: Run Trivy vulnerability scanner on built image
         uses: aquasecurity/trivy-action@master
         with:
