@@ -9,11 +9,11 @@ variable "replica_regions" {
   default     = []
 }
 
-variable "region" {
+/*variable "region" {
   description = "AWS region for the primary DynamoDB table"
   type        = string
   default     = "eu-west-2"
-}
+}*/
 
 variable "deletion_window_in_days" {
   description = "The waiting period before the KMS key is deleted"
