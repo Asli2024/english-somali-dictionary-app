@@ -337,6 +337,7 @@ module "dynamodb" {
   table_name      = "dictionary-words-${var.environment}"
   replica_regions = var.replica_regions
   providers = {
+    aws      = aws
     aws.use1 = aws.use1
   }
 }
