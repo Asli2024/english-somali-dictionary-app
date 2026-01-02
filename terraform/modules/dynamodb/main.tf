@@ -51,6 +51,7 @@ resource "aws_kms_key_policy" "dynamodb_mrk_policy" {
 }
 
 resource "aws_kms_replica_key" "dynamodb_mrk_use1" {
+  provider        = aws.use1
   count           = local.enable_use1 ? 1 : 0
   primary_key_arn = aws_kms_key.dynamodb_mrk.arn
   description     = "Replica MRK for DynamoDB Global Table - ${var.table_name} (us-east-1)"
@@ -61,9 +62,10 @@ resource "aws_kms_replica_key" "dynamodb_mrk_use1" {
 }
 
 resource "aws_kms_key_policy" "dynamodb_mrk_use1_policy" {
-  count  = local.enable_use1 ? 1 : 0
-  key_id = aws_kms_replica_key.dynamodb_mrk_use1[0].id
-  policy = data.aws_iam_policy_document.dynamodb_kms_policy.json
+  provider = aws.use1
+  count    = local.enable_use1 ? 1 : 0
+  key_id   = aws_kms_replica_key.dynamodb_mrk_use1[0].id
+  policy   = data.aws_iam_policy_document.dynamodb_kms_policy.json
 }
 
 resource "aws_dynamodb_table" "dictionary_words" {
