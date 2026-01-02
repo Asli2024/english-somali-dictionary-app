@@ -1,6 +1,6 @@
 # English Somali Dictionary App
 
-The **English Somali Dictionary App** is a production-ready, cloud-native translation service built on **AWS ECS Fargate** and provisioned entirely using **Terraform**.
+The **English Somali Dictionary App** is a production ready, cloud-native translation service built on **AWS ECS Fargate** and provisioned entirely using **Terraform**.
 
 It provides real-time English → Somali translation using **Amazon Bedrock** foundation models, with **optional DynamoDB caching** to improve performance and reduce inference costs.
 
