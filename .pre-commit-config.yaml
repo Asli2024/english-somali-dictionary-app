@@ -4,7 +4,9 @@ repos:
     hooks:
       - id: check-merge-conflict
       - id: end-of-file-fixer
+        exclude: ^README\.md$
       - id: trailing-whitespace
+        exclude: ^README\.md$
       - id: check-yaml
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
@@ -18,6 +20,6 @@ repos:
       exclude: ^bootstrap/
     - id: terraform_docs
       files: (\.tf|\.tfvars|\.hcl|Terraform/README\.md)$
-      exclude: (^bootstrap/,^README\.md$)
+      exclude: ^(bootstrap/|README\.md)$
     - id: terraform_trivy
       exclude: ^bootstrap/
