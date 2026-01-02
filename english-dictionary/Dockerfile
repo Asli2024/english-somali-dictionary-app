@@ -7,7 +7,7 @@ RUN apk add --no-cache --no-scripts --virtual .build-deps \
     gcc \
     musl-dev \
     libffi-dev && \
-    pip install --no-cache-dir --upgrade --force-reinstall pip
+    pip install --no-cache-dir "pip>=25.3,<26"
 
 COPY requirements.txt .
 
