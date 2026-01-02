@@ -53,6 +53,21 @@ To run the English Somali Dictionary app locally using Docker:
 
 4. **Watch the demo:** [Watch Local Demo](https://www.loom.com/share/06e87610f41940f89303b1f0bb9ee2bb)
 
+---
+
+## Docker Multi-Stage Build
+
+**Single-Stage Build:**
+
+![Single-Stage Docker Image](images/docker-single-stage.png)
+
+**Multi-Stage Build:**
+
+![Multi-Stage Docker Image](images/docker-multi-stage.png)
+
+Multi-stage build reduces image size by ~XX% and improves security by removing build tools from the final image.
+
+---
 
 ## Live Deployment
 
@@ -94,7 +109,6 @@ Translations can be cached in **DynamoDB** to:
 This approach allows fast local iteration while keeping production deployments optimised and cost-efficient.
 
 ---
-
 
 ## Repository Structure
 
