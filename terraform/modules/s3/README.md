@@ -5,13 +5,13 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | = 6.15.0 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | = 6.15.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.15.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.27.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.7.2 |
 
 ## Modules
@@ -31,7 +31,7 @@ No modules.
 | [aws_s3_bucket_public_access_block.this](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.this](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_s3_bucket_versioning.this](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/resources/s3_bucket_versioning) | resource |
-| [random_string.suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [random_string.suffix](https://registry.terraform.io/providers/hashicorp/random/6.15.0/docs/resources/string) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.kms_key_policy](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.s3_combined_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/6.15.0/docs/data-sources/iam_policy_document) | data source |

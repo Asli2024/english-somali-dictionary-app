@@ -11,6 +11,23 @@ The application is designed to run in two modes:
 
 ---
 
+## Architecture Overview
+
+![English-Somali Dictionary Architecture](images/architecture-design.gif)
+
+At a high level, the system consists of:
+
+* A **FastAPI container** running on ECS Fargate
+* An **internal ALB** that is not publicly accessible
+* **CloudFront** providing HTTPS termination, request routing, and caching control
+* **Amazon Bedrock** for inference using managed foundation models
+* **DynamoDB Global Table (optional)** for caching translation results
+* A **VPC with private subnets**, VPC endpoints, and restricted network access
+* **IAM roles with least-privilege permissions**
+* **Observability** via CloudWatch dashboards and alarms
+
+---
+
 ## Local Deployment with Docker
 
 To run the English Somali Dictionary app locally using Docker:
@@ -55,23 +72,6 @@ To run the English Somali Dictionary app locally using Docker:
 * **Customer-managed KMS keys** for encryption at rest
 * **End-to-end CI/CD** with GitHub Actions
 * **Modular Terraform architecture** following AWS and DevOps best practices
-
----
-
-## Architecture Overview
-
-![English-Somali Dictionary Architecture](images/architecture-design.gif)
-
-At a high level, the system consists of:
-
-* A **FastAPI container** running on ECS Fargate
-* An **internal ALB** that is not publicly accessible
-* **CloudFront** providing HTTPS termination, request routing, and caching control
-* **Amazon Bedrock** for inference using managed foundation models
-* **DynamoDB Global Table (optional)** for caching translation results
-* A **VPC with private subnets**, VPC endpoints, and restricted network access
-* **IAM roles with least-privilege permissions**
-* **Observability** via CloudWatch dashboards and alarms
 
 ---
 

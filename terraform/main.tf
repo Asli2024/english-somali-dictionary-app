@@ -336,6 +336,10 @@ module "dynamodb" {
   source          = "../terraform/modules/dynamodb"
   table_name      = "dictionary-words-${var.environment}"
   replica_regions = var.replica_regions
+  providers = {
+    aws      = aws
+    aws.use1 = aws.use1
+  }
 }
 
 module "cloudwatch_dashboard" {
