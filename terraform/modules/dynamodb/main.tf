@@ -4,7 +4,6 @@ locals {
   enable_use1 = contains(var.replica_regions, "us-east-1")
 }
 resource "aws_kms_key" "dynamodb_mrk" {
-  provider                = aws
   description             = "MRK for DynamoDB Global Table - ${var.table_name}"
   deletion_window_in_days = var.deletion_window_in_days
   enable_key_rotation     = true
@@ -47,9 +46,8 @@ data "aws_iam_policy_document" "dynamodb_kms_policy" {
 }
 
 resource "aws_kms_key_policy" "dynamodb_mrk_policy" {
-  provider = aws
-  key_id   = aws_kms_key.dynamodb_mrk.id
-  policy   = data.aws_iam_policy_document.dynamodb_kms_policy.json
+  key_id = aws_kms_key.dynamodb_mrk.id
+  policy = data.aws_iam_policy_document.dynamodb_kms_policy.json
 }
 
 resource "aws_kms_replica_key" "dynamodb_mrk_use1" {
@@ -71,7 +69,6 @@ resource "aws_kms_key_policy" "dynamodb_mrk_use1_policy" {
 }
 
 resource "aws_dynamodb_table" "dictionary_words" {
-  provider     = aws
   name         = var.table_name
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "word"
