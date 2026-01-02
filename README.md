@@ -107,6 +107,7 @@ English-Somali-Dictionary/
 │   ├── provider.tf
 │   └── variables.tf
 ├── english-dictionary/
+│   ├── .dockerignore
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── app/
