@@ -77,7 +77,7 @@ The application uses Docker multi-stage builds to optimize image size and securi
 
 ## Live Deployment
 
-[Live Deployment Demo](https://www.loom.com/share/9823e488715e4eb9bad9d9c6bd54d7c2)
+[Live Deployment Demo](https://www.loom.com/share/20b1ac0253104063a9c6a2b7f2b9e992)
 
 ## Key Features
 
@@ -194,16 +194,16 @@ All workflows are located in `.github/workflows/`.
 
 [Docker Build, Scan , Approve and Push Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20662878015): ![Docker Build Screenshot](images/docker-build-push.png)
 
-[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20663077549): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
+[Terraform Plan and Approve Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20665185917): ![Terraform Plan and Approve Run](images/terraform-plan-and-approve.png)
 
 
-[Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20663097722): ![Terraform Apply Run](images/terraform-apply.png)
+[Terraform Apply Run](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20665211866): ![Terraform Apply Run](images/terraform-apply.png)
 
 
-[Terraform Destroy Plan and Approve](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20583340179): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
+[Terraform Destroy Plan and Approve](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20665620464): ![Terraform Destroy Plan and Approve](images/terraform-destroy-plan-and-approve.png)
 
 
-[Terraform Destroy Apply](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20583351760): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
+[Terraform Destroy Apply](https://github.com/Asli2024/english-somali-dictionary-app/actions/runs/20665638529): ![Terraform Destroy Apply](images/terraform-destroy-apply.png)
 
 ---
 ## Contributing
