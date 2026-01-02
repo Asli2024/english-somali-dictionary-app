@@ -1,31 +1,36 @@
-# Single stage
+# Build stage
+FROM python:3.12-alpine AS builder
+
+WORKDIR /app
+
+RUN apk add --no-cache --no-scripts --virtual .build-deps \
+    gcc \
+    musl-dev \
+    libffi-dev && \
+    pip install --no-cache-dir --upgrade pip
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt && \
+    apk del --no-scripts .build-deps
+
+# Runtime stage
 FROM python:3.12-alpine
 
 WORKDIR /app
 
-# Install build and runtime dependencies
-RUN apk add --no-cache --no-scripts \
-    gcc \
-    musl-dev \
-    libffi-dev \
-    curl && \
-    pip install --no-cache-dir --upgrade pip
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH=/install/bin:$PATH \
+    PYTHONPATH=/install/lib/python3.12/site-packages
 
-# Copy and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Create non-root user
-RUN addgroup -g 1000 appgroup && \
+RUN apk add --no-cache --no-scripts curl && \
+    addgroup -g 1000 appgroup && \
     adduser -u 1000 -D -G appgroup appuser
 
-# Copy application code
+COPY --from=builder /install /install
 COPY --chown=appuser:appgroup ./app ./app
 COPY --chown=appuser:appgroup ./static ./static
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
 
 USER appuser
 
